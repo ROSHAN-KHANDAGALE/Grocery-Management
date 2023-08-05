@@ -1,0 +1,147 @@
+CREATE DATABASE grocery;
+
+CREATE TABLE IF NOT EXISTS grocery.CustomerEnroll (
+    ID INT PRIMARY KEY,
+    NAME VARCHAR(50) NOT NULL,
+    ADDRESS VARCHAR(100),
+    MOBILE VARCHAR(20) NOT NULL,
+    GENDER VARCHAR(10),
+    DOB DATE,
+    AGE INT,
+    EMAIL VARCHAR(50),
+    REG_DATE DATE
+);
+
+INSERT INTO grocery.CustomerEnroll (ID, NAME, ADDRESS, MOBILE, GENDER, DOB, AGE, EMAIL, REG_DATE) 
+VALUES (1, 'Jane Doe', '456 Main St', '555-1234', 'Female', '1995-01-01', 28, 'janedoe@gmail.com', '2023-04-02');
+
+CREATE TABLE grocery.NewUsers (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Fullname VARCHAR(50) NOT NULL,
+    Email VARCHAR(50) NOT NULL,
+    Mobileno VARCHAR(20) NOT NULL,
+    ADDRESS VARCHAR(100),
+    Customuser VARCHAR(20) NOT NULL,
+    Password VARCHAR(20) NOT NULL,
+    ConfirmPass VARCHAR(20) NOT NULL
+);
+
+INSERT INTO grocery.NewUsers (Fullname, Email, Mobileno, ADDRESS, Customuser, Password, ConfirmPass) 
+VALUES ('Roshan Khandagale','roshan15khandagale@gmail.com','7448255689','Gadge Nagar, Amravati','Admin','admin@123#','admin@123#');
+INSERT INTO grocery.NewUsers (Fullname, Email, Mobileno, ADDRESS, Customuser, Password, ConfirmPass) 
+VALUES ('John Doe', 'johndoe@gmail.com', '555-1234', '123 Main St, Anytown USA', 'johndoe', 'password123', 'password123');
+
+CREATE TABLE IF NOT EXISTS grocery.EMPLOYEE (
+  ID INT PRIMARY KEY,
+  NAME VARCHAR(50),
+  ADDRESS VARCHAR(100),
+  MOBILE1 VARCHAR(20),
+  MOBILE2 VARCHAR(20),
+  EMAIL VARCHAR(50),
+  DOB DATE,
+  AGE INT,
+  GENDER VARCHAR(10),
+  QUALIFICATION VARCHAR(50),
+  EXPERIENCE INT
+);
+
+INSERT INTO grocery.employee (ID, NAME, ADDRESS, MOBILE1, MOBILE2, EMAIL, DOB, AGE, GENDER, QUALIFICATION, EXPERIENCE) 
+VALUES (1, 'John Doe', '123 Main St', '555-1234', '555-5678', 'johndoe@gmail.com', '1990-01-01', 31, 'Male', 'Bachelor of Science', 5);
+
+CREATE TABLE IF NOT EXISTS grocery.Item (
+  ID INT PRIMARY KEY,
+  NAME VARCHAR(50),
+  BRAND VARCHAR(50),
+  ITM_TYPE VARCHAR(50),
+  QTY INT,
+  MNF DATE,
+  EXP DATE,
+  CONT_TYPE VARCHAR(50),
+  PRICE FLOAT,
+  ORIGIN VARCHAR(50),
+  MNF_DETAILS VARCHAR(100),
+  STOCK INT
+);
+
+INSERT INTO grocery.item (ID, NAME, BRAND, ITM_TYPE, QTY, MNF, EXP, CONT_TYPE, PRICE, ORIGIN, MNF_DETAILS, STOCK) 
+VALUES (1, 'T-shirt', 'Nike', 'Clothing', 100, '2022-01-01', '2023-12-31', 'Plastic', 25.99, 'USA', 'Made in Vietnam', 80);
+
+CREATE TABLE IF NOT EXISTS grocery.RACK (
+  ID INT PRIMARY KEY,
+  RACK_NAME VARCHAR(50),
+  SUBRACK VARCHAR(50),
+  ITEM1 varchar(50),
+  ITEM2 varchar(50),
+  ITEM3 varchar(50),
+  ITEM4 varchar(50),
+  ITEM5 varchar(50),
+  ITEM6 varchar(50),
+  ITEM7 varchar(50),
+  ITEM8 varchar(50),
+  ITEM9 varchar(50),
+  ITEM10 varchar(50),
+);
+
+INSERT INTO grocery.RACK (ID, RACK_NAME, SUBRACK, ITEM1, ITEM2, ITEM3, ITEM4, ITEM5, ITEM6, ITEM7, ITEM8, ITEM9, ITEM10) 
+VALUES (1, 'Shelf A', 'SHOES', 'Nike Air Max 90', 'Adidas Ultraboost', 'Puma Suede Classic', 'Converse Chuck Taylor All Star', 'Vans Old Skool', 'Reebok Classic Leather', 'New Balance 990', 'Asics Gel-Kayano 26', 'Brooks Ghost 13', 'Under Armour HOVR Phantom'
+);
+
+CREATE TABLE IF NOT EXISTS grocery.addshop (
+  REGNO INT PRIMARY KEY,
+  SHOPNAME VARCHAR(50),
+  ADDRESS VARCHAR(100),
+  MOBILE_NO VARCHAR(20),
+  TELEPHONE VARCHAR(20),
+  OWNER VARCHAR(50),
+  EMAIL VARCHAR(50)
+);
+
+INSERT INTO grocery.addshop (REGNO, SHOPNAME, ADDRESS, MOBILE_NO, TELEPHONE, OWNER, EMAIL) 
+VALUES (1001, 'ABC Stores', '456 Main St', '555-1234', '555-5678', 'John Doe', 'johndoe@gmail.com');
+
+CREATE TABLE IF NOT EXISTS grocery.Vendor (
+  ID INT PRIMARY KEY,
+  NAME VARCHAR(50),
+  ADDRESS VARCHAR(100),
+  EMAIL VARCHAR(50),
+  MOBILE VARCHAR(20),
+  FAX VARCHAR(20),
+  WEBSITE VARCHAR(50),
+  REPRESENTATIVE VARCHAR(50),
+  REVIEW VARCHAR(100)
+);
+
+INSERT INTO grocery.Vendor (ID, NAME, ADDRESS, EMAIL, MOBILE, FAX, WEBSITE, REPRESENTATIVE, REVIEW) 
+VALUES (1, 'ABC Corporation', '789 High St', 'abccorp@hotmail.com', '555-1234', '555-5678', 'www.abccorp.com', 'John Doe', 'Good vendor');
+
+CREATE TABLE IF NOT EXISTS grocery.Warehouse (
+  ID INT PRIMARY KEY,
+  WR_NAME VARCHAR(50),
+  OWNER VARCHAR(50),
+  ADDRESS VARCHAR(100),
+  TELEPHONE VARCHAR(20),
+  MOBILE1 VARCHAR(20),
+  MOBILE2 VARCHAR(20),
+  EMAIL VARCHAR(50),
+  AADHAR VARCHAR(20)
+);
+
+INSERT INTO grocery.Warehouse (ID, WR_NAME, OWNER, ADDRESS, TELEPHONE, MOBILE1, MOBILE2, EMAIL, AADHAR) 
+VALUES (1, 'Warehouse A', 'John Doe', '123 Main St', '0000', '555-5678', '555-5678', 'johndoe@gmail.com', '1234 5678 9012');
+
+CREATE TABLE IF NOT EXISTS grocery.BILLRECORD (
+  ID INT PRIMARY KEY AUTO_INCREMENT,
+  NAME VARCHAR(50),
+  EMAIL VARCHAR(50),
+  MOBILE VARCHAR(20),
+  PRODUCT_ID INT,
+  PRNAME VARCHAR(50),
+  DESCRIPTION VARCHAR(100),
+  RATE FLOAT,
+  QTY INT,
+  TOTAL FLOAT,
+  _DATE_ DATE
+);
+
+INSERT INTO grocery.BILLRECORD (ID, NAME, EMAIL, MOBILE, PRODUCT_ID, PRNAME, DESCRIPTION, RATE, QTY, TOTAL, _DATE_) 
+VALUES (1, 'John Doe', 'johndoe@gmail.com', '555-1234', 1, 'T-shirt', 'Blue, size L', 25.99, 2, 51.98, '2023-04-02');

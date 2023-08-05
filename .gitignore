@@ -1,0 +1,10 @@
+# misc files and folders
+
+/build/
+/dist/
+/lib/
+/nbproject/
+/test/
+build.xml
+manifest.mf
+SaleR.jrxml
